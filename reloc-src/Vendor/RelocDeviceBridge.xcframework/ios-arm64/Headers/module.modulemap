@@ -1,0 +1,4 @@
+module RelocDeviceBridge {
+    header "RelocDeviceBridge.h"
+    export *
+}

@@ -1,0 +1,59 @@
+name: Build Reloc IPA
+
+on:
+  push:
+    tags:
+      - 'reloc-build-*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: xcode-27
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Show Xcode
+        run: |
+          xcodebuild -version
+          xcodebuild -showsdks | grep iphoneos
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Ensure Metal toolchain (best effort)
+        run: xcodebuild -downloadComponent MetalToolchain || true
+
+      - name: Generate Xcode project
+        working-directory: reloc-src
+        run: xcodegen generate
+
+      - name: Build unsigned device IPA
+        working-directory: reloc-src
+        run: |
+          set -e
+          xcodebuild build \
+            -project Reloc.xcodeproj \
+            -scheme Reloc \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO
+          mkdir -p build/Payload
+          cp -R build/DerivedData/Build/Products/Release-iphoneos/Reloc.app build/Payload/
+          (cd build && zip -qry Reloc.ipa Payload)
+          ls -lh build/Reloc.ipa
+
+      - name: Publish IPA to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Reloc ${{ github.ref_name }}
+          files: reloc-src/build/Reloc.ipa
+          generate_release_notes: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

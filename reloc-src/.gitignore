@@ -1,0 +1,49 @@
+# macOS & IDE
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Xcode & Build Artifacts
+build/
+DerivedData/
+*.xcarchive
+*.ipa
+*.dSYM
+*.dSYM.zip
+*.xcuserstate
+xcuserdata/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+# Local test suite
+RelocTests/
+
+# Rust build cache
+Rust/**/target/
+
+# Private Keys, Certificates, Provisioning Profiles & Pairing Records
+Reloc/Resources/MFi/*
+!Reloc/Resources/MFi/.gitkeep
+*.p7b
+*.pk8
+*.p12
+*.pfx
+*.pem
+*.key
+*.cer
+*.crt
+*.der
+*.mobileprovision
+*.provisionprofile
+*.rppairing
+*.mobiledevicepairing
+*.keychain
+*.keychain-db
