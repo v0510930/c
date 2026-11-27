@@ -1,0 +1,2 @@
+"NSLocationWhenInUseUsageDescription" = "Used during location injection to keep Reloc running in the background and trigger system Location Services subscription.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Used during location injection to keep Reloc active in the background and prevent system suspension from dropping the simulated location.";

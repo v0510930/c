@@ -1,0 +1,204 @@
+/* Tabs & Common */
+"tab.location" = "定位";
+"tab.settings" = "设置";
+"tab.logs" = "实测与日志";
+"common.alert.title" = "提示";
+"common.ok" = "确定";
+"common.cancel" = "取消";
+"common.close" = "关闭";
+"common.save" = "保存";
+"common.apply" = "应用";
+"common.delete" = "删除";
+"common.rename" = "重命名";
+"common.clear" = "清空";
+"common.retry" = "重试";
+"common.stop" = "停止";
+"common.restore" = "恢复";
+"common.enable" = "去开启";
+
+/* Appearance, Map Sources & Styles */
+"appearance.system" = "跟随系统";
+"appearance.light" = "浅色";
+"appearance.dark" = "深色";
+
+"map.source.apple" = "Apple 地图（系统默认）";
+"map.source.esri_street" = "全球街道图（Esri · WGS-84）";
+"map.source.osm" = "OpenStreetMap（开源 · WGS-84）";
+"map.source.esri_satellite" = "全球卫星图（Esri · WGS-84）";
+
+"map.source.apple.short" = "Apple 地图";
+"map.source.esri_street.short" = "全球街道";
+"map.source.osm.short" = "OSM 地图";
+"map.source.esri_satellite.short" = "全球卫星";
+
+"map.style.standard" = "标准";
+"map.style.satellite" = "卫星";
+"map.style.hybrid" = "混合";
+
+/* Settings */
+"settings.title" = "设置";
+"settings.section.location" = "定位选项";
+"settings.nmea_interval" = "NMEA 发送间隔 · %.1f 秒";
+"settings.duration" = "会话时长";
+"settings.duration.continuous" = "持续运行";
+"settings.duration.seconds" = "%d 秒";
+"settings.gcj02" = "中国大陆地图 GCJ-02 纠偏";
+"settings.micro_jitter" = "自然微漂移（±0.6m GPS 抖动）";
+"settings.keep_alive" = "后台保活（切换地图不断连）";
+"settings.section.appearance" = "地图与外观";
+"settings.appearance" = "外观主题";
+"settings.language" = "应用语言";
+"settings.language.system" = "跟随系统";
+"settings.map_source" = "地图数据源";
+"settings.apple_map_style" = "Apple 地图样式";
+"settings.appearance.footer" = "默认使用 Apple 系统地图（MapKit 原生）；如需无高德字样的纯国际 WGS-84 底图，可切换为全球街道图、OpenStreetMap 或全球卫星图。";
+
+/* Map Picker */
+"map.search.placeholder" = "搜索地点或输入 纬度, 经度";
+"map.search.clear" = "清空搜索";
+"map.search.manual" = "手动输入坐标";
+"map.menu.source" = "地图数据源";
+"map.menu.style" = "Apple 地图样式";
+"map.menu.coordinates" = "坐标";
+"map.menu.manual_input" = "手动输入经纬度";
+"map.pin.active" = "当前位置";
+"map.pin.pending" = "待更新位置";
+"map.unknown_place" = "未知地点";
+"map.selected_place" = "选中位置";
+"map.geocoding" = "正在解析地名…";
+"map.wgs84_coord" = "WGS-84 坐标";
+
+"map.status.confirmed" = "外设定位已生效 ✓";
+"map.status.pending_refresh" = "待刷新生效 · ACK %d";
+"map.status.switching" = "切换定位中 · ACK %d";
+"map.status.auth_refresh" = "已鉴权 · 待刷新订阅";
+"map.status.auth_waking" = "已鉴权 · 唤醒订阅中…";
+"map.status.connecting" = "正在启动定位…";
+"map.status.idle" = "就绪 · 选点后开始";
+
+"map.altitude.resolving" = "海拔解析中…";
+"map.altitude.value" = "海拔 %.1fm";
+
+"map.interrupted.title" = "上次定位会话意外中断";
+"map.interrupted.subtitle" = "恢复上次位置：%@";
+
+"map.stop_confirm.title" = "停止定位并恢复真实位置？";
+"map.stop_confirm.button" = "停止并恢复";
+"map.stop_confirm.message" = "停止后系统将逐步切回本机真实 GPS 位置。";
+
+"map.permission.denied" = "未开启定位权限，无法自动触发外设订阅";
+"map.permission.reduced" = "未开启「精确位置」，可能导致外设 GPS 无法锁定或偏移";
+"map.restored.notice" = "已恢复本机真实 GPS 定位";
+"map.last_error" = "上次错误：%@";
+
+"map.button.update_location" = "更新到此位置";
+"map.button.stop_restore" = "停止并恢复";
+"map.button.start" = "开始定位";
+
+"map.restore.banner.stale" = "外设连接已断开，但系统仍在缓存上次定位（室内弱信号常见）。点击下方一键刷新定位服务即可立即恢复真实位置。";
+"map.restore.banner.button" = "一键刷新定位服务（恢复真实位置）";
+"map.restore.banner.working" = "已发送断开与失效报文，正在唤醒本机真实 GPS 恢复定位…";
+"map.restore.banner.refresh_now" = "立即刷新";
+
+"map.live.confirmed.title" = "外设 GPS 已 100% 生效";
+"map.live.confirmed.subtitle" = "系统已确认外设来源（isProducedByAccessory = true），可直接切去任意 App";
+"map.live.waiting_sub.detail" = "MFi 鉴权已通过，但系统尚未订阅外设 GPS。点击下方一键刷新（含悬浮 7 秒倒计时）即可唤醒订阅。";
+"map.live.pending_lock.detail" = "NMEA 已连通，但系统仍在沿用本机缓存定位。点击下方一键刷新（含悬浮 7 秒倒计时）即可 100% 强制切换。";
+"map.live.refresh_button" = "一键刷新定位服务（浮窗指引）";
+"map.live.connecting" = "正在建立本机外设通道并完成 MFi 鉴权…";
+"map.live.waking_sub" = "鉴权成功，正在自动唤醒系统外设 GPS 订阅…";
+"map.live.injecting" = "正在高速注入 NMEA 坐标，等待系统锁定外设源…";
+"map.live.force_refresh" = "强制刷新";
+
+"map.search.error.not_found" = "未找到匹配地点，可尝试换个关键词";
+"map.search.error.throttled" = "搜索过于频繁，请稍后再试";
+"map.search.error.network" = "搜索失败，请检查网络连接";
+
+/* Places Sheet */
+"places.title" = "收藏与历史";
+"places.picker" = "分类";
+"places.tab.favorites" = "收藏 (%d)";
+"places.tab.recents" = "最近记录 (%d)";
+"places.save_current.header" = "收藏当前选中位置";
+"places.name.placeholder" = "输入名称";
+"places.favorites.header" = "已保存收藏";
+"places.favorites.empty" = "暂无收藏地点";
+"places.recents.header" = "最近使用（最多 30 条）";
+"places.recents.empty" = "暂无最近使用记录";
+"places.rename.title" = "重命名收藏";
+"places.rename.placeholder" = "新名称";
+
+/* Starter Favorites */
+"favorite.tokyo_station.name" = "东京站";
+"favorite.tokyo_station.subtitle" = "日本东京都千代田区";
+"favorite.taipei_101.name" = "台北 101";
+"favorite.taipei_101.subtitle" = "台北市信义区";
+
+/* Manual Coordinate Sheet */
+"manual.title" = "手动输入坐标";
+"manual.section.header" = "WGS-84 坐标与海拔";
+"manual.lat.placeholder" = "纬度 (-90 ~ 90)";
+"manual.lon.placeholder" = "经度 (-180 ~ 180)";
+"manual.alt.placeholder" = "海拔 (米，留空自动获取地形海拔)";
+"manual.footer.invalid" = "请输入合法的纬度（-90 ~ 90）、经度（-180 ~ 180）及海拔（-500 ~ 50000 米）。";
+"manual.footer.hint" = "留空海拔将自动根据坐标查询真实地形海拔；填入数值则会固定使用该海拔。";
+"manual.favorite.header" = "保存到收藏（可选）";
+"manual.favorite.placeholder" = "地点名称";
+
+/* Protocol Logs & Telemetry */
+"logs.title" = "定位实测与日志";
+"logs.category.all" = "全部";
+"logs.category.nmea" = "NMEA";
+"logs.category.errors" = "错误";
+"logs.events_count" = "%d 条事件";
+"logs.empty.title" = "暂无协议事件";
+"logs.empty.subtitle" = "开始定位后，这里会实时展示连接握手与 NMEA 数据流。";
+"logs.search.prompt" = "筛选事件（如 FFFA / acknowledged）";
+"logs.telemetry.title" = "CoreLocation 实时实测";
+"logs.telemetry.monitoring" = "正在实时读取系统上报定位来源";
+"logs.telemetry.idle" = "验证系统是否识别为外设 GPS";
+"logs.telemetry.start" = "开始实测";
+"logs.telemetry.coords" = "纬度 / 经度";
+"logs.telemetry.acc_alt" = "精度 / 海拔";
+"logs.telemetry.simulated" = "软件模拟";
+"logs.telemetry.accessory" = "外设来源";
+"logs.telemetry.hint" = "点击右上角「开始实测」，即可实时查看 iOS sourceInformation 中的软件模拟与外设定位标记。";
+
+/* PiP Location Refresh Guide */
+"pip.header" = "Reloc · 一键触发定位";
+"pip.step_badge" = "步骤 %d/3 · 实时监测";
+"pip.preparing.headline" = "准备刷新定位服务…";
+"pip.preparing.subtitle" = "请按浮窗指引关闭再开启定位服务";
+"pip.step1.headline" = "① 关闭系统「定位服务」";
+"pip.step1.subtitle" = "关闭后将自动开始 7 秒倒计时，无需手动计时";
+"pip.step1.restore.subtitle" = "清空外设残留缓存，关闭后自动开始 7 秒倒计时";
+"pip.step2.headline" = "② 正在清空系统定位缓存";
+"pip.step2.restore.headline" = "② 正在清空外设残留缓存";
+"pip.step2.subtitle" = "请保持「定位服务」关闭，等待倒计时结束";
+"pip.step3.enable.headline" = "③ 请重新打开「定位服务」";
+"pip.step3.enable.subtitle" = "打开开关后 Reloc 将自动 100% 锁定外设 GPS";
+"pip.step3.restore.subtitle" = "打开开关后将立即切回本机真实 GPS";
+"pip.step3.reopened.headline" = "③ 系统已重新打开定位服务";
+"pip.step3.reopened.subtitle" = "正在极速锁定外设 GPS，请稍候 1–2 秒…";
+"pip.step3.subscribed.headline" = "③ 系统已重新订阅外设 GPS";
+"pip.step3.subscribed.subtitle" = "正在极速锁定目标坐标，请稍候 1–2 秒…";
+"pip.step3.restoring.headline" = "③ 正在重新获取本机真实定位…";
+"pip.step3.restoring.subtitle" = "已重新打开定位服务，请稍候 1–2 秒";
+"pip.countdown.seconds" = "%d 秒";
+"pip.countdown.now" = "现在重新打开！";
+"pip.finish.succeeded.headline" = "外设定位已 100% 生效";
+"pip.finish.succeeded.message" = "已锁定「%@」，可返回任意 App 使用";
+"pip.finish.restored.headline" = "本机真实定位已恢复";
+"pip.finish.restored.message" = "已切回本机真实 GPS，可返回任意 App 使用";
+"pip.finish.cancelled.headline" = "定位刷新已取消";
+"pip.finish.stopped.message" = "定位会话已停止";
+
+/* Errors */
+"error.mfi_unavailable" = "内置配件认证组件不可用，请重新安装应用。";
+"error.virtual.no_framework" = "当前系统无法加载虚拟外设接口 CoreAccessories。";
+"error.virtual.no_client" = "当前系统没有兼容的 ACCTransportClient。";
+"error.virtual.incompatible_abi" = "虚拟外设接口不兼容：%@";
+"error.virtual.socketpair" = "虚拟外设 socketpair 失败：%s";
+"error.virtual.create_conn" = "系统未允许创建虚拟外设连接，请查看协议日志。";
+"error.virtual.create_endpoint" = "系统未允许创建或发布 iAP2 虚拟端点。";
+"error.virtual.no_detection" = "虚拟端点未返回 iAP2 检测响应。";

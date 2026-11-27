@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		009471309CEF715784DBF635 /* RLMFiSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9A62B9DE4E6EB870CDCD3 /* RLMFiSigner.m */; };
+		07874DF23AB1FE87C5FFEEB1 /* RLStreamSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 798BAA61FAEB07BAF0FDB485 /* RLStreamSocket.m */; };
+		0EA76798E33EFF8AD157E396 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDE08702EBA243E2EB18470 /* AVKit.framework */; };
+		0F56C155BC682C7AEDE21302 /* RelocViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B6530ED10700ADF3B10F5 /* RelocViewModel.swift */; };
+		159018AFBDECEB4E60B4F58D /* RLVirtualAccessoryTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F584A9F1EDD8F6A540BC544 /* RLVirtualAccessoryTransport.m */; };
+		27BEEB3AD1FE25540DB009ED /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D35A014900FE527B79661E /* AVFoundation.framework */; };
+		3A44DCBC187D0C070D9A15BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 481BB485B1DD7DCCC2C284DF /* Localizable.strings */; };
+		4FD27B5C8B313D8C370335CD /* MapPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C59C32FC1BDE74B37605057 /* MapPickerView.swift */; };
+		54521575868A0C22599BC477 /* RLIAP2Wire.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D131CEAB76294CC481CD79 /* RLIAP2Wire.m */; };
+		586B82235D9C729070F2A1FF /* AccessoryLocationSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1ADF34515318AD11ECF92B /* AccessoryLocationSession.swift */; };
+		5E8F9D35BDEDBEC603E9452A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64ACFAE8A6A12376682329E7 /* MapKit.framework */; };
+		68EDA186619DF6FE38B00AF5 /* MFi in Resources */ = {isa = PBXBuildFile; fileRef = E0CE22ABB9341372C4304BA7 /* MFi */; };
+		77F2DAFBFEBC1BAE94D918C8 /* BackgroundKeepAlive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A0982D349BA617CD166AB5 /* BackgroundKeepAlive.swift */; };
+		78CDB1C04614A3C79D14E64F /* IAP2Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB14CC02951EAC5F9F696222 /* IAP2Link.swift */; };
+		7A7E15A0295ABAF77EB98636 /* RelocTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0039FDF8415F28A276A9FC30 /* RelocTheme.swift */; };
+		7BDDE8916EC3B3CD6FF11E2D /* NMEAGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E587C4B8FC9E4E58EFE516 /* NMEAGenerator.swift */; };
+		860DFC85B98B5F852C9F532C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0E10CE91EAA37DC5056CFE /* CoreLocation.framework */; };
+		946CDB3F3CE0DF37EB6A5259 /* RelocApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107C87E85734440925389836 /* RelocApp.swift */; };
+		BBC24FD21B0D4ECB05A9EE9B /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94F5AC44A491F85A40468C5 /* ConfigurationView.swift */; };
+		BC282DDAB891FF38996E2FA3 /* RLASN1DER.m in Sources */ = {isa = PBXBuildFile; fileRef = 838BE0F1264239EB51809DAC /* RLASN1DER.m */; };
+		C7C20C2562D2ECA1CB57F2ED /* CredentialStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C228CB38BBF6624A23FCE122 /* CredentialStore.swift */; };
+		CB5CDD966D6CBD41B143BB84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E174E4E40873ACEF78744DF /* Assets.xcassets */; };
+		D90B08DE6CBDAB0F522476F8 /* WebMercatorMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BA8E218C73FE7D2B1330A4 /* WebMercatorMapView.swift */; };
+		EB09B8A6EE1013A84AFD60D6 /* LiveCoreLocationMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0C87683C6D8173DE104180 /* LiveCoreLocationMonitor.swift */; };
+		ED6AE5132CEA42E9EA185A91 /* ProtocolLogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF6E059385E81D275048E16 /* ProtocolLogsView.swift */; };
+		EF280A6D2B22747C6F0E3A68 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE1FD17CCE39595BFAA6FE0 /* Localization.swift */; };
+		F3C52E6FF921DB3FA5A0B039 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29EED7363A6D049A5CE8120A /* InfoPlist.strings */; };
+		F42E982FD4227D9FFC57198E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5633FA5614D05E2D9EBD63D5 /* Security.framework */; };
+		F7DB4FCAAAA968F4327888BB /* LocationRefreshPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035CC2FE72BB452213491B08 /* LocationRefreshPresenter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0039FDF8415F28A276A9FC30 /* RelocTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocTheme.swift; sourceTree = "<group>"; };
+		035CC2FE72BB452213491B08 /* LocationRefreshPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRefreshPresenter.swift; sourceTree = "<group>"; };
+		055A908CEAA0E3864FAA5C36 /* Reloc.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Reloc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		107C87E85734440925389836 /* RelocApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocApp.swift; sourceTree = "<group>"; };
+		1C1ADF34515318AD11ECF92B /* AccessoryLocationSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryLocationSession.swift; sourceTree = "<group>"; };
+		1CDE08702EBA243E2EB18470 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		2B0E10CE91EAA37DC5056CFE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		50A0982D349BA617CD166AB5 /* BackgroundKeepAlive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundKeepAlive.swift; sourceTree = "<group>"; };
+		54E587C4B8FC9E4E58EFE516 /* NMEAGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMEAGenerator.swift; sourceTree = "<group>"; };
+		5633FA5614D05E2D9EBD63D5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5701C6319FBA606AF05F137D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5E174E4E40873ACEF78744DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5F584A9F1EDD8F6A540BC544 /* RLVirtualAccessoryTransport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLVirtualAccessoryTransport.m; sourceTree = "<group>"; };
+		64ACFAE8A6A12376682329E7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		68D131CEAB76294CC481CD79 /* RLIAP2Wire.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLIAP2Wire.m; sourceTree = "<group>"; };
+		77D35A014900FE527B79661E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		798BAA61FAEB07BAF0FDB485 /* RLStreamSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLStreamSocket.m; sourceTree = "<group>"; };
+		7E2A4E3C40ECF216BD6EB869 /* RLStreamSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLStreamSocket.h; sourceTree = "<group>"; };
+		838BE0F1264239EB51809DAC /* RLASN1DER.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLASN1DER.m; sourceTree = "<group>"; };
+		8CC9A62B9DE4E6EB870CDCD3 /* RLMFiSigner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLMFiSigner.m; sourceTree = "<group>"; };
+		8D0C87683C6D8173DE104180 /* LiveCoreLocationMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCoreLocationMonitor.swift; sourceTree = "<group>"; };
+		9AF6E059385E81D275048E16 /* ProtocolLogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolLogsView.swift; sourceTree = "<group>"; };
+		9C59C32FC1BDE74B37605057 /* MapPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPickerView.swift; sourceTree = "<group>"; };
+		9DE1FD17CCE39595BFAA6FE0 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		A1701DAF0190CBDE4EAA10FC /* RLIAP2Wire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLIAP2Wire.h; sourceTree = "<group>"; };
+		A29CCE588A1F93C53EFE95C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9BE099CD59D2525A39E28BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B19B347CA915F422330D5837 /* RLASN1DER.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLASN1DER.h; sourceTree = "<group>"; };
+		B754D1F8BA54B55F5940CBB9 /* Reloc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reloc-Bridging-Header.h"; sourceTree = "<group>"; };
+		B926E35FCC050467E99896A1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C228CB38BBF6624A23FCE122 /* CredentialStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialStore.swift; sourceTree = "<group>"; };
+		C3BA8E218C73FE7D2B1330A4 /* WebMercatorMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebMercatorMapView.swift; sourceTree = "<group>"; };
+		CB14CC02951EAC5F9F696222 /* IAP2Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAP2Link.swift; sourceTree = "<group>"; };
+		CED8E0AAF25D4930FAC27968 /* RLVirtualAccessoryTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLVirtualAccessoryTransport.h; sourceTree = "<group>"; };
+		D91B6530ED10700ADF3B10F5 /* RelocViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocViewModel.swift; sourceTree = "<group>"; };
+		E0CE22ABB9341372C4304BA7 /* MFi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MFi; path = Reloc/Resources/MFi; sourceTree = SOURCE_ROOT; };
+		F26F9DD2BDF2236070FF3B0A /* RLMFiSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLMFiSigner.h; sourceTree = "<group>"; };
+		F94F5AC44A491F85A40468C5 /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D74E1BB04511FD83B6473AA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F42E982FD4227D9FFC57198E /* Security.framework in Frameworks */,
+				5E8F9D35BDEDBEC603E9452A /* MapKit.framework in Frameworks */,
+				860DFC85B98B5F852C9F532C /* CoreLocation.framework in Frameworks */,
+				27BEEB3AD1FE25540DB009ED /* AVFoundation.framework in Frameworks */,
+				0EA76798E33EFF8AD157E396 /* AVKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B2EB0F0D49BC1D05D444783 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				B754D1F8BA54B55F5940CBB9 /* Reloc-Bridging-Header.h */,
+				B19B347CA915F422330D5837 /* RLASN1DER.h */,
+				838BE0F1264239EB51809DAC /* RLASN1DER.m */,
+				A1701DAF0190CBDE4EAA10FC /* RLIAP2Wire.h */,
+				68D131CEAB76294CC481CD79 /* RLIAP2Wire.m */,
+				F26F9DD2BDF2236070FF3B0A /* RLMFiSigner.h */,
+				8CC9A62B9DE4E6EB870CDCD3 /* RLMFiSigner.m */,
+				7E2A4E3C40ECF216BD6EB869 /* RLStreamSocket.h */,
+				798BAA61FAEB07BAF0FDB485 /* RLStreamSocket.m */,
+				CED8E0AAF25D4930FAC27968 /* RLVirtualAccessoryTransport.h */,
+				5F584A9F1EDD8F6A540BC544 /* RLVirtualAccessoryTransport.m */,
+			);
+			path = ObjC;
+			sourceTree = "<group>";
+		};
+		0F1BAF3188FA4A276B6E33BC /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				1C1ADF34515318AD11ECF92B /* AccessoryLocationSession.swift */,
+				50A0982D349BA617CD166AB5 /* BackgroundKeepAlive.swift */,
+				C228CB38BBF6624A23FCE122 /* CredentialStore.swift */,
+				CB14CC02951EAC5F9F696222 /* IAP2Link.swift */,
+				8D0C87683C6D8173DE104180 /* LiveCoreLocationMonitor.swift */,
+				9DE1FD17CCE39595BFAA6FE0 /* Localization.swift */,
+				035CC2FE72BB452213491B08 /* LocationRefreshPresenter.swift */,
+				54E587C4B8FC9E4E58EFE516 /* NMEAGenerator.swift */,
+				D91B6530ED10700ADF3B10F5 /* RelocViewModel.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		56201FE04B9E562F4AA54EC0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5E174E4E40873ACEF78744DF /* Assets.xcassets */,
+				29EED7363A6D049A5CE8120A /* InfoPlist.strings */,
+				481BB485B1DD7DCCC2C284DF /* Localizable.strings */,
+			);
+			name = Resources;
+			path = Reloc/Resources;
+			sourceTree = "<group>";
+		};
+		8DC834BFDBB112647D56B1C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77D35A014900FE527B79661E /* AVFoundation.framework */,
+				1CDE08702EBA243E2EB18470 /* AVKit.framework */,
+				2B0E10CE91EAA37DC5056CFE /* CoreLocation.framework */,
+				64ACFAE8A6A12376682329E7 /* MapKit.framework */,
+				5633FA5614D05E2D9EBD63D5 /* Security.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9FA3243B28A28348AC1D00C4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0B2EB0F0D49BC1D05D444783 /* ObjC */,
+				0F1BAF3188FA4A276B6E33BC /* Swift */,
+			);
+			name = Core;
+			path = Reloc/Core;
+			sourceTree = "<group>";
+		};
+		B5FE872D62EA2C36861662F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				055A908CEAA0E3864FAA5C36 /* Reloc.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB95A4C352B5C4126747C74F = {
+			isa = PBXGroup;
+			children = (
+				E0CE22ABB9341372C4304BA7 /* MFi */,
+				9FA3243B28A28348AC1D00C4 /* Core */,
+				56201FE04B9E562F4AA54EC0 /* Resources */,
+				F6B4DCC9F3052788CE3D3285 /* UI */,
+				8DC834BFDBB112647D56B1C7 /* Frameworks */,
+				B5FE872D62EA2C36861662F4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F6B4DCC9F3052788CE3D3285 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F94F5AC44A491F85A40468C5 /* ConfigurationView.swift */,
+				9C59C32FC1BDE74B37605057 /* MapPickerView.swift */,
+				9AF6E059385E81D275048E16 /* ProtocolLogsView.swift */,
+				107C87E85734440925389836 /* RelocApp.swift */,
+				0039FDF8415F28A276A9FC30 /* RelocTheme.swift */,
+				C3BA8E218C73FE7D2B1330A4 /* WebMercatorMapView.swift */,
+			);
+			name = UI;
+			path = Reloc/UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD703FCA02F8945940D1B207 /* Reloc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7668A63FF47AF657D6BD18D1 /* Build configuration list for PBXNativeTarget "Reloc" */;
+			buildPhases = (
+				16052CBA24BA7CCE7DED1EE0 /* Sources */,
+				2AB10E1B8C6342AD30986A8E /* Resources */,
+				D74E1BB04511FD83B6473AA5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Reloc;
+			packageProductDependencies = (
+			);
+			productName = Reloc;
+			productReference = 055A908CEAA0E3864FAA5C36 /* Reloc.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4D5C80C6BC7FFA1E2AA26C5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					DD703FCA02F8945940D1B207 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AB8E9595926974AC9241276B /* Build configuration list for PBXProject "Reloc" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				"zh-Hans",
+			);
+			mainGroup = CB95A4C352B5C4126747C74F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B5FE872D62EA2C36861662F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD703FCA02F8945940D1B207 /* Reloc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AB10E1B8C6342AD30986A8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB5CDD966D6CBD41B143BB84 /* Assets.xcassets in Resources */,
+				F3C52E6FF921DB3FA5A0B039 /* InfoPlist.strings in Resources */,
+				3A44DCBC187D0C070D9A15BE /* Localizable.strings in Resources */,
+				68EDA186619DF6FE38B00AF5 /* MFi in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16052CBA24BA7CCE7DED1EE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				586B82235D9C729070F2A1FF /* AccessoryLocationSession.swift in Sources */,
+				77F2DAFBFEBC1BAE94D918C8 /* BackgroundKeepAlive.swift in Sources */,
+				BBC24FD21B0D4ECB05A9EE9B /* ConfigurationView.swift in Sources */,
+				C7C20C2562D2ECA1CB57F2ED /* CredentialStore.swift in Sources */,
+				78CDB1C04614A3C79D14E64F /* IAP2Link.swift in Sources */,
+				EB09B8A6EE1013A84AFD60D6 /* LiveCoreLocationMonitor.swift in Sources */,
+				EF280A6D2B22747C6F0E3A68 /* Localization.swift in Sources */,
+				F7DB4FCAAAA968F4327888BB /* LocationRefreshPresenter.swift in Sources */,
+				4FD27B5C8B313D8C370335CD /* MapPickerView.swift in Sources */,
+				7BDDE8916EC3B3CD6FF11E2D /* NMEAGenerator.swift in Sources */,
+				ED6AE5132CEA42E9EA185A91 /* ProtocolLogsView.swift in Sources */,
+				BC282DDAB891FF38996E2FA3 /* RLASN1DER.m in Sources */,
+				54521575868A0C22599BC477 /* RLIAP2Wire.m in Sources */,
+				009471309CEF715784DBF635 /* RLMFiSigner.m in Sources */,
+				07874DF23AB1FE87C5FFEEB1 /* RLStreamSocket.m in Sources */,
+				159018AFBDECEB4E60B4F58D /* RLVirtualAccessoryTransport.m in Sources */,
+				946CDB3F3CE0DF37EB6A5259 /* RelocApp.swift in Sources */,
+				7A7E15A0295ABAF77EB98636 /* RelocTheme.swift in Sources */,
+				0F56C155BC682C7AEDE21302 /* RelocViewModel.swift in Sources */,
+				D90B08DE6CBDAB0F522476F8 /* WebMercatorMapView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		29EED7363A6D049A5CE8120A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9BE099CD59D2525A39E28BF /* en */,
+				5701C6319FBA606AF05F137D /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		481BB485B1DD7DCCC2C284DF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A29CCE588A1F93C53EFE95C3 /* en */,
+				B926E35FCC050467E99896A1 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		19F0F70AA8A009C95F55E8A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		42475D4C1D29B5C1F81A7485 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Reloc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.reloc.ios;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Reloc/Core/ObjC/Reloc-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65E67407D41D4604043C962F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Reloc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.reloc.ios;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Reloc/Core/ObjC/Reloc-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E3FA8E28F575DB278398971E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7668A63FF47AF657D6BD18D1 /* Build configuration list for PBXNativeTarget "Reloc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42475D4C1D29B5C1F81A7485 /* Debug */,
+				65E67407D41D4604043C962F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AB8E9595926974AC9241276B /* Build configuration list for PBXProject "Reloc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3FA8E28F575DB278398971E /* Debug */,
+				19F0F70AA8A009C95F55E8A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A4D5C80C6BC7FFA1E2AA26C5 /* Project object */;
+}
