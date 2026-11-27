@@ -31,7 +31,7 @@ final class ActivationManager: ObservableObject {
     func activate(with input: String) -> Bool {
         let code = input.trimmingCharacters(in: .whitespacesAndNewlines)
         guard let signatureData = Base64URL.decode(code),
-              let publicKey = try? Ed25519.Signing.PublicKey(rawRepresentation: Self.publicKeyBytes),
+              let publicKey = try? Ed25519.Signing.PublicKey(rawRepresentation: Data(Self.publicKeyBytes)),
               let signature = try? Ed25519.Signing.Signature(rawRepresentation: signatureData),
               publicKey.isValidSignature(signature, for: Data(deviceCode.utf8))
         else {
