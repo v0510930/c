@@ -1,0 +1,66 @@
+name: Build Reloc Keygen IPA
+
+on:
+  push:
+    tags:
+      - 'keygen-build-*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: xcode-27
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Show Xcode
+        run: |
+          xcodebuild -version
+          xcodebuild -showsdks | grep iphoneos
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        working-directory: RelocKeygen
+        run: xcodegen generate
+
+      - name: Build unsigned device IPA
+        working-directory: RelocKeygen
+        run: |
+          set -e -o pipefail
+          mkdir -p build build/Payload
+          xcodebuild build \
+            -project RelocKeygen.xcodeproj \
+            -scheme RelocKeygen \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO 2>&1 | tee build/xcodebuild.log
+          cp -R build/DerivedData/Build/Products/Release-iphoneos/RelocKeygen.app build/Payload/
+          (cd build && zip -qry RelocKeygen.ipa Payload)
+          ls -lh build/RelocKeygen.ipa
+
+      - name: Publish IPA to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Reloc 注册机 ${{ github.ref_name }}
+          files: RelocKeygen/build/RelocKeygen.ipa
+          generate_release_notes: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish failure log
+        if: failure()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Reloc 注册机构建失败 ${{ github.ref_name }}
+          files: RelocKeygen/build/xcodebuild.log
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
