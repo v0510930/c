@@ -1,6 +1,5 @@
 import Foundation
 import Combine
-import CryptoKit
 
 /// 设备绑定授权：注册机用共享密钥对「设备码」做 HMAC，App 用同一密钥校验。
 /// 一个激活码只对生成它的设备有效；换机需重新签发。
@@ -33,11 +32,10 @@ final class ActivationManager: ObservableObject {
             .replacingOccurrences(of: " ", with: "")
         guard let provided = Base32.decode(code), provided.count == 16 else { return false }
 
-        let key = SymmetricKey(data: Data(Self.secret))
-        let mac = HMACSHA256.authenticationCode(for: Data(deviceCode.utf8), using: key)
-        let expected = Data(mac).prefix(16)
+        let mac = SimpleCrypto.hmacsha256(key: Self.secret, message: Array(deviceCode.utf8))
+        let expected = Array(mac.prefix(16))
 
-        guard Data(provided) == expected else { return false }
+        guard Array(provided) == expected else { return false }
         UserDefaults.standard.set(deviceCode, forKey: activatedKey)
         isActivated = true
         return true

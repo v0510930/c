@@ -1,5 +1,4 @@
 import Foundation
-import CryptoKit
 import Security
 
 /// 设备身份：生成与本机绑定、卸载重装也不会变的设备码。
@@ -10,7 +9,7 @@ enum DeviceIdentity {
     /// 设备码，形如 RLC-ABCD-EFGH-IJKL-MNOP
     static func code() -> String {
         let uuid = stableUUID()
-        let digest = SHA256.hash(data: Data(uuid.utf8))
+        let digest = SimpleCrypto.sha256(Array(uuid.utf8))
         let raw = Base32.encode(Data(digest.prefix(15))) // 15 bytes -> 24 chars
         var parts: [String] = []
         var index = raw.startIndex
