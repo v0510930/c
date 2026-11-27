@@ -13,7 +13,7 @@ struct ActivationGateView: View {
 
     init(manager: ActivationManager) {
         self.manager = manager
-        self._deviceCode = State(initialValue: manager.deviceCode)
+        self.deviceCode = manager.deviceCode
     }
 
     var body: some View {

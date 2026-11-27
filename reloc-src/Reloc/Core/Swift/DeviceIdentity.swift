@@ -58,6 +58,22 @@ enum Base32 {
         }
         return out
     }
+
+    static func decode(_ value: String) -> Data? {
+        var bits = 0
+        var buffer = 0
+        var out = [UInt8]()
+        for character in value.uppercased() {
+            guard let index = alphabet.firstIndex(of: character) else { return nil }
+            buffer = (buffer << 5) | index
+            bits += 5
+            if bits >= 8 {
+                out.append(UInt8((buffer >> (bits - 8)) & 0xff))
+                bits -= 8
+            }
+        }
+        return Data(out)
+    }
 }
 
 /// Base64url（无填充）解码，用于把激活码还原成 Ed25519 签名

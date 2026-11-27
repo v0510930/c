@@ -2,19 +2,18 @@ import Foundation
 import Combine
 import CryptoKit
 
-/// 设备绑定授权：注册机用私钥对设备码签名，App 只用内置公钥验签。
-/// 私钥不在 App 内，逆向 App 无法自行签发激活码。
+/// 设备绑定授权：注册机用共享密钥对「设备码」做 HMAC，App 用同一密钥校验。
+/// 一个激活码只对生成它的设备有效；换机需重新签发。
 /// 本类只读写 UserDefaults / Keychain，不触碰定位、配对或回环逻辑。
 final class ActivationManager: ObservableObject {
     @Published private(set) var isActivated: Bool
 
-    private let activatedKey = "dev.reloc.activation.v2"
+    private let activatedKey = "dev.reloc.activation.v3"
 
-    /// 与注册机 reloc_private_key.pem 配对的 Ed25519 公钥（32 字节）
-    private static let publicKeyBytes: [UInt8] = [
-        20, 175, 45, 230, 250, 39, 87, 127, 58, 21, 123, 69, 79, 84,
-        39, 141, 177, 35, 249, 138, 63, 95, 144, 236, 77, 187, 251,
-        165, 249, 188, 140, 133
+    /// 与注册机 keygen.py 中的 SECRET 保持一致（32 字节）
+    private static let secret: [UInt8] = [
+        242, 69, 248, 169, 96, 183, 99, 119, 100, 52, 230, 200, 163, 206, 157, 183,
+        100, 110, 143, 254, 155, 242, 196, 63, 143, 212, 91, 125, 9, 185, 254, 143
     ]
 
     init() {
@@ -26,17 +25,19 @@ final class ActivationManager: ObservableObject {
     /// 展示给注册机的设备码
     var deviceCode: String { DeviceIdentity.code() }
 
-    /// 校验激活码：用公钥验证「注册机对本机设备码的签名」
+    /// 校验激活码：Base32 解码后与本机设备码的 HMAC 前 16 字节比对
     @discardableResult
     func activate(with input: String) -> Bool {
-        let code = input.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let signatureData = Base64URL.decode(code),
-              let publicKey = try? Ed25519.Signing.PublicKey(rawRepresentation: Data(Self.publicKeyBytes)),
-              let signature = try? Ed25519.Signing.Signature(rawRepresentation: signatureData),
-              publicKey.isValidSignature(signature, for: Data(deviceCode.utf8))
-        else {
-            return false
-        }
+        let code = input
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .replacingOccurrences(of: " ", with: "")
+        guard let provided = Base32.decode(code), provided.count == 16 else { return false }
+
+        let key = SymmetricKey(data: Data(Self.secret))
+        let mac = HMACSHA256.authenticationCode(for: Data(deviceCode.utf8), using: key)
+        let expected = Data(mac).prefix(16)
+
+        guard Data(provided) == expected else { return false }
         UserDefaults.standard.set(deviceCode, forKey: activatedKey)
         isActivated = true
         return true
