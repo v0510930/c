@@ -123,6 +123,11 @@
 "map.live.injecting" = "正在高速注入 NMEA 坐标，等待系统锁定外设源…";
 "map.live.force_refresh" = "强制刷新";
 
+/* 远距离定位飞行模式引导（iOS 27+ 距离保护） */
+"map.airplane.title" = "远距离定位 · 请先开启飞行模式";
+"map.airplane.detail" = "目标距当前位置超过 15 公里，iOS 27 会拦截外设定位。请先下拉控制中心开启飞行模式（关闭 Wi-Fi 与蜂窝），再点「开始定位」并按浮窗指引操作。";
+"map.airplane.dismiss" = "知道了";
+
 "map.search.error.not_found" = "未找到匹配地点，可尝试换个关键词";
 "map.search.error.throttled" = "搜索过于频繁，请稍后再试";
 "map.search.error.network" = "搜索失败，请检查网络连接";
@@ -226,7 +231,7 @@
 "pip.preparing.headline" = "准备刷新定位服务…";
 "pip.preparing.subtitle" = "请按浮窗指引关闭再开启定位服务";
 "pip.step1.headline" = "① 关闭系统「定位服务」";
-"pip.step1.subtitle" = "关闭后将自动开始 7 秒倒计时，无需手动计时";
+"pip.step1.subtitle" = "远距离定位请先下拉控制中心开启飞行模式（关 Wi-Fi 与蜂窝），再关闭定位服务；关闭后自动开始 7 秒倒计时";
 "pip.step1.restore.subtitle" = "清空外设残留缓存，关闭后自动开始 7 秒倒计时";
 "pip.step2.headline" = "② 正在清空系统定位缓存";
 "pip.step2.restore.headline" = "② 正在清空外设残留缓存";

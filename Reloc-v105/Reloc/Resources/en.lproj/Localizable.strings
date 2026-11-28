@@ -123,6 +123,11 @@
 "map.live.injecting" = "Streaming high-rate NMEA, waiting for system lock…";
 "map.live.force_refresh" = "Refresh";
 
+/* Airplane Mode guidance for long-distance locating (iOS 27+ distance protection) */
+"map.airplane.title" = "Long-distance · Turn on Airplane Mode first";
+"map.airplane.detail" = "Target is over 15 km away — iOS 27 blocks accessory GPS. Swipe down Control Center, turn on Airplane Mode (Wi-Fi & Cellular off), then tap Start and follow the floating guide.";
+"map.airplane.dismiss" = "Got it";
+
 "map.search.error.not_found" = "No matching places found. Try another keyword.";
 "map.search.error.throttled" = "Too many searches. Please try again shortly.";
 "map.search.error.network" = "Search failed. Please check your network connection.";
@@ -226,7 +231,7 @@
 "pip.preparing.headline" = "Preparing Location Refresh…";
 "pip.preparing.subtitle" = "Follow the floating guide to toggle Location Services";
 "pip.step1.headline" = "① Turn OFF Location Services";
-"pip.step1.subtitle" = "A 7-second countdown starts automatically once off";
+"pip.step1.subtitle" = "For long-distance: swipe down Control Center, turn ON Airplane Mode (Wi-Fi & Cellular off) first, then turn OFF Location Services. A 7-second countdown starts automatically once off";
 "pip.step1.restore.subtitle" = "Clears accessory cache; 7s countdown starts automatically";
 "pip.step2.headline" = "② Clearing System Location Cache";
 "pip.step2.restore.headline" = "② Clearing Accessory Cache";

@@ -21,6 +21,7 @@ struct MapPickerView: View {
     @State private var showSaveRouteAlert = false
     @State private var saveRouteName = ""
     @State private var copiedAddressToast = false
+    @State private var airplaneHintDismissed = false
 
     private var isRouteMode: Bool {
         viewModel.controlMode == .route || viewModel.isRouteSessionActive
@@ -121,6 +122,8 @@ struct MapPickerView: View {
                     if let interrupted = viewModel.interruptedSession, !viewModel.snapshot.isRunning {
                         interruptedRecoveryBanner(interrupted)
                     }
+
+                    airplaneModeHintBanner
                 }
             }
             .padding(.horizontal, 12)
@@ -388,6 +391,44 @@ struct MapPickerView: View {
                     cameraTarget = viewModel.pendingMapCoordinate ?? viewModel.activeMapCoordinate
                 }
             }
+        }
+    }
+
+    @ViewBuilder
+    private var airplaneModeHintBanner: some View {
+        // iOS 27+ blocks accessory GPS for targets >15 km away unless Wi-Fi/Cell scanning is off.
+        // Show a proactive hint once the user picks a distant point, before starting the session.
+        // Pure UI guidance — does not touch the location pipeline.
+        if !viewModel.snapshot.isRunning,
+           viewModel.interruptedSession == nil,
+           viewModel.isDistantFromRealLocation,
+           !airplaneHintDismissed {
+            VStack(alignment: .leading, spacing: 7) {
+                HStack(alignment: .top, spacing: 7) {
+                    Image(systemName: "airplane")
+                        .foregroundStyle(RelocTheme.amber)
+                    Text(L10n.tr("map.airplane.title"))
+                        .font(.caption.weight(.bold))
+                        .foregroundStyle(.primary)
+                    Spacer()
+                    Button {
+                        airplaneHintDismissed = true
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.caption2.weight(.bold))
+                            .foregroundStyle(.secondary)
+                    }
+                    .buttonStyle(.plain)
+                }
+                Text(L10n.tr("map.airplane.detail"))
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(10)
+            .background(RelocTheme.amber.opacity(0.12), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous).strokeBorder(RelocTheme.amber.opacity(0.35), lineWidth: 0.8))
+            .transition(.opacity)
         }
     }
 
