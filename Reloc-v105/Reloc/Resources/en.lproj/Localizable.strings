@@ -231,7 +231,9 @@
 "pip.preparing.headline" = "Preparing Location Refresh…";
 "pip.preparing.subtitle" = "Follow the floating guide to toggle Location Services";
 "pip.step1.headline" = "① Turn OFF Location Services";
-"pip.step1.subtitle" = "For long-distance: swipe down Control Center, turn ON Airplane Mode (Wi-Fi & Cellular off) first, then turn OFF Location Services. A 7-second countdown starts automatically once off";
+"pip.step1.subtitle" = "A 7-second countdown starts automatically once off";
+"pip.step1.locate.headline" = "① Turn ON Airplane Mode first";
+"pip.step1.locate.subtitle" = "Swipe down Control Center, turn ON Airplane Mode (Wi-Fi & Cellular off), then turn OFF Location Services. A 7-second countdown starts automatically once off";
 "pip.step1.restore.subtitle" = "Clears accessory cache; 7s countdown starts automatically";
 "pip.step2.headline" = "② Clearing System Location Cache";
 "pip.step2.restore.headline" = "② Clearing Accessory Cache";

@@ -1728,6 +1728,14 @@ public final class RelocViewModel: ObservableObject {
         locationRefreshSawDisabled = false
         lastRestoreAuthStatus = coreLocation.authorizationStatus
         LocationRefreshPresenter.shared.startLocationRefreshGuide()
+        // iOS 27+ rejects accessory GPS for long-distance targets while Wi-Fi/Cell scanning runs.
+        // Make airplane mode the headline (not hidden in small subtitle) for the locating flow only.
+        // The restore flow keeps the original step1 headline (it has its own override below).
+        LocationRefreshPresenter.shared.updateLocationRefresh(
+            step: 1,
+            headline: L10n.tr("pip.step1.locate.headline"),
+            subtitle: L10n.tr("pip.step1.locate.subtitle")
+        )
         session?.triggerFastBurst(seconds: 45.0)
         guard !skipAutoSettingsJump else { return }
         // Wait briefly for PiP to enter smoothly before switching to Settings (prevents stutter).
