@@ -1,0 +1,277 @@
+/* Tabs & Common */
+"tab.location" = "Location";
+"tab.settings" = "Settings";
+"tab.logs" = "Diagnostics";
+"common.alert.title" = "Notice";
+"common.ok" = "OK";
+"common.cancel" = "Cancel";
+"common.close" = "Close";
+"common.save" = "Save";
+"common.apply" = "Apply";
+"common.delete" = "Delete";
+"common.rename" = "Rename";
+"common.clear" = "Clear";
+"common.retry" = "Retry";
+"common.stop" = "Stop";
+"common.restore" = "Resume";
+"common.enable" = "Open Settings";
+
+/* Appearance, Map Sources & Styles */
+"appearance.system" = "Follow System";
+"appearance.light" = "Light";
+"appearance.dark" = "Dark";
+
+"map.source.apple" = "Apple Maps (System Default)";
+"map.source.esri_street" = "Global Street (Esri · WGS-84)";
+"map.source.osm" = "OpenStreetMap (Open · WGS-84)";
+"map.source.esri_satellite" = "Global Satellite (Esri · WGS-84)";
+
+"map.source.apple.short" = "Apple Maps";
+"map.source.esri_street.short" = "Global Street";
+"map.source.osm.short" = "OSM";
+"map.source.esri_satellite.short" = "Satellite";
+
+"map.style.standard" = "Standard";
+"map.style.satellite" = "Satellite";
+"map.style.hybrid" = "Hybrid";
+
+/* Settings */
+"settings.title" = "Settings";
+"settings.section.location" = "Location Options";
+"settings.nmea_interval" = "NMEA Interval · %.1fs";
+"settings.duration" = "Session Duration";
+"settings.duration.continuous" = "Continuous";
+"settings.duration.seconds" = "%d sec";
+"settings.duration.hours" = "%d hr";
+"settings.gcj02" = "Mainland China GCJ-02 Offset";
+"settings.micro_jitter" = "Micro-Jitter (±0.6m GPS Drift)";
+"settings.background_mode.title" = "Background Mode";
+"settings.background_mode.always" = "Native Location Keep-Alive (No Audio)";
+"settings.background_mode.upgrade_hint" = "Set Location permission to \"Always\" for best long-run stability";
+"settings.background_mode.action" = "Settings";
+"settings.background_mode.footer" = "Runs purely on native iOS background location mode with zero silent audio playback or audio-session conflicts. For multi-hour screen-locked sessions, set Reloc's Location permission to \"Always\" in iOS Settings.";
+"settings.section.appearance" = "Map & Appearance";
+"settings.appearance" = "Appearance";
+"settings.language" = "Language";
+"settings.language.system" = "Follow System";
+"settings.map_source" = "Map Source";
+"settings.apple_map_style" = "Apple Maps Style";
+"settings.appearance.footer" = "Uses Apple Maps (MapKit) by default. Switch to Global Street, OpenStreetMap, or Global Satellite for pure international WGS-84 tiles.";
+"settings.section.shortcuts" = "Shortcuts";
+"settings.shortcuts.start_summary" = "Pick favorite → Start GPS → Jump to Location Services to clear cache";
+"settings.shortcuts.stop_summary" = "Stop GPS → Attach 7s PiP timer & jump to Location Services for real GPS";
+"settings.shortcuts.open_app" = "Open Apple Shortcuts";
+"settings.shortcuts.copy_prefs_title" = "Copy Location Services Deep-Link";
+"settings.shortcuts.copied" = "Copied";
+"settings.shortcuts.footer" = "Search Reloc in the Shortcuts app to add these two actions. To chain Shortcuts' own Open URL action instead, pass prefs:root=Privacy&path=LOCATION after Start Virtual Location.";
+
+/* Map Picker */
+"map.search.placeholder" = "Search place or lat, lon";
+"map.search.clear" = "Clear search";
+"map.search.manual" = "Enter coordinates manually";
+"map.menu.source" = "Map Source";
+"map.menu.style" = "Apple Maps Style";
+"map.menu.coordinates" = "Coordinates";
+"map.menu.manual_input" = "Enter Coordinates";
+"map.pin.active" = "Active Location";
+"map.pin.pending" = "Pending Location";
+"map.unknown_place" = "Unknown Place";
+"map.selected_place" = "Selected Location";
+"map.geocoding" = "Resolving address…";
+"map.wgs84_coord" = "WGS-84 Coordinate";
+
+"map.status.confirmed" = "Accessory GPS Active ✓";
+"map.status.pending_refresh" = "Refresh Needed · ACK %d";
+"map.status.switching" = "Locking GPS · ACK %d";
+"map.status.auth_refresh" = "Authenticated · Refresh Needed";
+"map.status.auth_waking" = "Authenticated · Subscribing…";
+"map.status.connecting" = "Starting Location…";
+"map.status.idle" = "Ready · Pick a Point";
+
+"map.altitude.resolving" = "Elevation…";
+"map.altitude.value" = "Alt %.1fm";
+
+"map.interrupted.title" = "Previous Session Interrupted";
+"map.interrupted.subtitle" = "Resume last location: %@";
+
+"map.stop_confirm.title" = "Stop simulation and restore real location?";
+"map.stop_confirm.button" = "Stop & Restore";
+"map.stop_confirm.message" = "After stopping, iOS will switch back to your device's real GPS location.";
+
+"map.permission.denied" = "Location permission is off; cannot trigger accessory subscription.";
+"map.permission.reduced" = "Precise Location is off; accessory GPS may fail to lock or drift.";
+"map.restored.notice" = "Restored device's real GPS location";
+"map.last_error" = "Last error: %@";
+
+"map.button.update_location" = "Update to Here";
+"map.button.stop_restore" = "Stop & Restore";
+"map.button.start" = "Start Location";
+
+"map.restore.banner.stale" = "Accessory disconnected, but iOS is still caching the previous location (common indoors). Tap below for a 1-tap refresh to restore real GPS.";
+"map.restore.banner.button" = "1-Tap Refresh Location Services (Restore)";
+"map.restore.banner.working" = "Disconnect & void NMEA sent. Waking internal GPS…";
+"map.restore.banner.refresh_now" = "Refresh Now";
+
+"map.live.confirmed.title" = "Accessory GPS Active";
+"map.live.confirmed.subtitle" = "Verified external source (isProducedByAccessory = true). Safe to switch apps.";
+"map.live.waiting_sub.detail" = "MFi auth succeeded, but iOS hasn't subscribed to accessory GPS yet. Tap below for a 1-tap refresh (with 7s PiP timer).";
+"map.live.pending_lock.detail" = "NMEA connected, but iOS is still holding its cached location. Tap below for a 1-tap refresh (with 7s PiP timer).";
+"map.live.pending_lock.distant_detail" = "Target is >15 km from your real location and blocked by iOS Wi-Fi / Cellular screening (CLNmeaScreener). Tap below to refresh; for continuous routes >15 km away, enabling Airplane Mode prevents re-blocking.";
+"map.live.refresh_button" = "1-Tap Refresh Location Services (PiP Guide)";
+"map.live.connecting" = "Creating local accessory channel & MFi auth…";
+"map.live.waking_sub" = "Authenticated. Waking system accessory GPS subscription…";
+"map.live.injecting" = "Streaming high-rate NMEA, waiting for system lock…";
+"map.live.force_refresh" = "Refresh";
+
+"map.search.error.not_found" = "No matching places found. Try another keyword.";
+"map.search.error.throttled" = "Too many searches. Please try again shortly.";
+"map.search.error.network" = "Search failed. Please check your network connection.";
+
+/* Places Sheet */
+"places.title" = "Saved & Routes";
+"places.picker" = "Category";
+"places.tab.favorites" = "Places (%d)";
+"places.tab.routes" = "Routes (%d)";
+"places.tab.recents" = "Recents (%d)";
+"places.save_current.header" = "Save Selected Location";
+"places.name.placeholder" = "Enter name";
+"places.favorites.header" = "Saved Places";
+"places.favorites.empty" = "No saved places yet";
+"places.routes.save_current" = "Save Current Route";
+"places.routes.header" = "Saved Routes";
+"places.routes.empty" = "No saved routes yet. Plan a route and tap the bookmark icon to save.";
+"places.recents.header" = "Recent Locations (Up to 30)";
+"places.recents.empty" = "No recent locations yet";
+"places.rename.title" = "Rename";
+"places.rename.placeholder" = "New name";
+
+/* Mode & Trajectory Simulation */
+"mode.fixed" = "Pin";
+"mode.route" = "Route";
+"route.search.placeholder" = "Search to add start, stop, or destination";
+"route.preset.walking" = "Walk";
+"route.preset.running" = "Run";
+"route.preset.cycling" = "Cycle";
+"route.preset.driving" = "Drive";
+"route.loop.once" = "Stop at End";
+"route.loop.round_trip" = "Round Trip";
+"route.loop.closed" = "Loop";
+"route.realistic.short" = "Natural";
+"route.speed.label" = "Speed";
+"route.button.start" = "Start Route Simulation";
+"route.button.pause" = "Pause";
+"route.button.resume" = "Resume";
+"route.pin.start" = "Start";
+"route.pin.end" = "Finish";
+"route.pin.via" = "Stop %d";
+"route.planning.calculating" = "Routing along roads…";
+"route.planning.empty_title" = "Road Route Simulation";
+"route.planning.empty_subtitle" = "Tap the map or search above to add start & end stops";
+"route.planning.need_end_title" = "Start Set · Tap Map for Destination";
+"route.planning.start_selected" = "Start: %@";
+"route.planning.ready_title" = "Road Route · %@";
+"route.planning.ready_subtitle" = "%d stops · Est. %@";
+"route.notice.straight_fallback" = "Road routing unavailable here; fell back to straight interpolation";
+"route.notice.partial_fallback" = "Some segments fell back to straight interpolation";
+"route.status.waiting_lock" = "Waiting for start-point lock…";
+"route.status.waiting_relock" = "System lock lost — holding position until relocked…";
+"route.status.moving" = "Simulating Route";
+"route.status.moving_lap" = "Simulating · Lap %d";
+"route.status.paused" = "Route Paused (Holding Position)";
+"route.status.completed" = "Arrived at Destination (Holding)";
+"route.eta.done" = "Arrived";
+"route.save.title" = "Save Route";
+"route.save.placeholder" = "Route name";
+"route.save.message" = "Saves the planned road geometry, preset, speed, and loop mode.";
+
+/* Starter Favorites */
+"favorite.tokyo_station.name" = "Tokyo Station";
+"favorite.tokyo_station.subtitle" = "Chiyoda City, Tokyo, Japan";
+"favorite.taipei_101.name" = "Taipei 101";
+"favorite.taipei_101.subtitle" = "Xinyi District, Taipei";
+
+/* Manual Coordinate Sheet */
+"manual.title" = "Enter Coordinates";
+"manual.section.header" = "WGS-84 Coordinates & Altitude";
+"manual.lat.placeholder" = "Latitude (-90 ~ 90)";
+"manual.lon.placeholder" = "Longitude (-180 ~ 180)";
+"manual.alt.placeholder" = "Altitude (m, blank for auto elevation)";
+"manual.footer.invalid" = "Enter valid latitude (-90 ~ 90), longitude (-180 ~ 180), and altitude (-500 ~ 50000 m).";
+"manual.footer.hint" = "Leave altitude blank to fetch terrain elevation automatically, or enter a value to fix it.";
+"manual.favorite.header" = "Save to Favorites (Optional)";
+"manual.favorite.placeholder" = "Place name";
+
+/* Protocol Logs & Telemetry */
+"logs.title" = "Telemetry & Logs";
+"logs.category.all" = "All";
+"logs.category.nmea" = "NMEA";
+"logs.category.errors" = "Errors";
+"logs.events_count" = "%d events";
+"logs.empty.title" = "No Protocol Events";
+"logs.empty.subtitle" = "Start a location session to inspect live iAP2 handshakes and NMEA streams.";
+"logs.search.prompt" = "Filter events (e.g. FFFA / acknowledged)";
+"logs.telemetry.title" = "Live CoreLocation Telemetry";
+"logs.telemetry.monitoring" = "Reading live location source reported by iOS";
+"logs.telemetry.idle" = "Verify whether iOS recognizes external GPS";
+"logs.telemetry.start" = "Monitor";
+"logs.telemetry.coords" = "Lat / Lon";
+"logs.telemetry.acc_alt" = "Accuracy / Alt";
+"logs.telemetry.simulated" = "Software Sim";
+"logs.telemetry.accessory" = "Accessory";
+"logs.telemetry.hint" = "Tap \"Monitor\" above to inspect iOS sourceInformation flags in real time.";
+
+/* PiP Location Refresh Guide */
+"pip.header" = "Reloc · Location Refresh";
+"pip.step_badge" = "Step %d/3 · Live";
+"pip.preparing.headline" = "Preparing Location Refresh…";
+"pip.preparing.subtitle" = "Follow the floating guide to toggle Location Services";
+"pip.step1.headline" = "① Turn OFF Location Services";
+"pip.step1.subtitle" = "A 7-second countdown starts automatically once off";
+"pip.step1.restore.subtitle" = "Clears accessory cache; 7s countdown starts automatically";
+"pip.step2.headline" = "② Clearing System Location Cache";
+"pip.step2.restore.headline" = "② Clearing Accessory Cache";
+"pip.step2.subtitle" = "Keep Location Services OFF until the timer finishes";
+"pip.step3.enable.headline" = "③ Turn ON Location Services";
+"pip.step3.enable.subtitle" = "Reloc will lock accessory GPS automatically";
+"pip.step3.restore.subtitle" = "iOS will switch back to real GPS immediately";
+"pip.step3.reopened.headline" = "③ Location Services Re-enabled";
+"pip.step3.reopened.subtitle" = "Locking accessory GPS, please wait 1–2s…";
+"pip.step3.subscribed.headline" = "③ Accessory GPS Subscribed";
+"pip.step3.subscribed.subtitle" = "Locking target coordinates, please wait 1–2s…";
+"pip.step3.restoring.headline" = "③ Acquiring Real GPS…";
+"pip.step3.restoring.subtitle" = "Location Services re-enabled, please wait 1–2s";
+"pip.countdown.seconds" = "%d s";
+"pip.countdown.now" = "Turn ON Now!";
+"pip.finish.succeeded.headline" = "Accessory GPS Active";
+"pip.finish.succeeded.message" = "Locked \"%@\". Safe to switch to any app.";
+"pip.finish.restored.headline" = "Real GPS Restored";
+"pip.finish.restored.message" = "Switched back to device GPS. Safe to switch apps.";
+"pip.finish.cancelled.headline" = "Location Refresh Cancelled";
+"pip.finish.stopped.message" = "Location session stopped";
+
+/* Errors */
+"error.mfi_unavailable" = "Bundled accessory authentication component is unavailable. Please reinstall the app.";
+"error.virtual.no_framework" = "Unable to load CoreAccessories on this iOS version.";
+"error.virtual.no_client" = "No compatible ACCTransportClient found on this iOS version.";
+"error.virtual.incompatible_abi" = "Incompatible virtual accessory interface: %@";
+"error.virtual.socketpair" = "Virtual accessory socketpair failed: %s";
+"error.virtual.create_conn" = "System denied creating virtual accessory connection. Check protocol logs.";
+"error.virtual.create_endpoint" = "System denied creating or publishing iAP2 virtual endpoint.";
+"error.virtual.no_detection" = "Virtual endpoint did not return iAP2 detection response.";
+
+/* App Intents & Shortcuts */
+"intent.error.permission_denied" = "Reloc does not have Location permission. Open Reloc and set Location access to \"Always\" in iOS Settings.";
+"intent.entity.favorite" = "Saved Place";
+"intent.param.favorite" = "Saved Place";
+"intent.param.auto_jump_settings" = "Auto-Jump to Location Services";
+"intent.prompt.choose_favorite" = "Which saved place would you like to locate?";
+
+"intent.start_favorite.title" = "Start Virtual Location";
+"intent.start_favorite.desc" = "Pick a favorite, start virtual GPS, launch the 7s PiP refresh timer, and jump to iOS Location Services to clear cache (also outputs prefs: URL).";
+"intent.start_favorite.short" = "Start Location";
+"Locate ${place} and refresh cache" = "Locate ${place} and refresh cache";
+
+"intent.stop.title" = "Stop Virtual Location";
+"intent.stop.desc" = "Disconnect the virtual accessory, launch the 7s restore PiP timer, and jump straight to iOS Location Services to clear residual cache.";
+"intent.stop.short" = "Stop Location";
+"Stop virtual location and refresh cache" = "Stop virtual location and refresh cache";

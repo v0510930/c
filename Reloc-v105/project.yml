@@ -1,0 +1,80 @@
+name: Reloc
+options:
+  bundleIdPrefix: dev.reloc
+  developmentLanguage: en
+  knownRegions:
+    - en
+    - zh-Hans
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: false
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    TARGETED_DEVICE_FAMILY: "1,2"
+    CLANG_ENABLE_MODULES: YES
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    EXCLUDED_ARCHS[sdk=iphonesimulator*]: x86_64
+
+targets:
+  Reloc:
+    type: application
+    platform: iOS
+    sources:
+      - path: Reloc/Core
+      - path: Reloc/UI
+      - path: Reloc/Resources
+        excludes:
+          - "MFi"
+          - "MFi/**"
+      - path: Reloc/Resources/MFi
+        buildPhase: resources
+        type: folder
+    info:
+      path: Reloc/Info.plist
+      properties:
+        CFBundleDisplayName: 怪咖定位
+        CFBundleName: 怪咖定位
+        CFBundleShortVersionString: "1.0.5"
+        CFBundleVersion: "7"
+        LSRequiresIPhoneOS: true
+        LSSupportsOpeningDocumentsInPlace: true
+        UIFileSharingEnabled: true
+        UIApplicationSupportsIndirectInputEvents: true
+        UILaunchScreen: {}
+        UIRequiresFullScreen: true
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSLocationWhenInUseUsageDescription: Used during location injection to keep Reloc running in the background and trigger system Location Services subscription.
+        NSLocationAlwaysAndWhenInUseUsageDescription: Used during location injection to keep Reloc active in the background and prevent system suspension from dropping the simulated location.
+        UIBackgroundModes:
+          - location
+          - audio
+        CFBundleURLTypes:
+          - CFBundleURLName: dev.reloc.ios
+            CFBundleURLSchemes:
+              - reloc
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.reloc.ios
+        SWIFT_OBJC_BRIDGING_HEADER: Reloc/Core/ObjC/Reloc-Bridging-Header.h
+        INFOPLIST_FILE: Reloc/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+    dependencies:
+      - sdk: Security.framework
+      - sdk: MapKit.framework
+      - sdk: CoreLocation.framework
+      - sdk: AVFoundation.framework
+      - sdk: AVKit.framework
+      - sdk: AppIntents.framework
