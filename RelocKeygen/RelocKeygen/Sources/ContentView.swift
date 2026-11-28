@@ -6,6 +6,10 @@ struct ContentView: View {
     @State private var resultCode: String? = nil
     @State private var showCopied: Bool = false
     @State private var showInvalid: Bool = false
+    @State private var expiryMode: Int = 0   // 0=永久 1=快捷天数 2=自定义日期
+    @State private var selectedDays: Int = 30
+    @State private var customDate = Date()
+    @State private var expiryLabel: String = "永久有效"
 
     private let accent = LinearGradient(
         colors: [Color(hex: "5B7CFA"), Color(hex: "8A5BFA")],
@@ -25,6 +29,7 @@ struct ContentView: View {
                     VStack(spacing: 22) {
                         header
                         inputCard
+                        expiryCard
                         if let code = resultCode { resultCard(code) }
                         hintCard
                         authorCard
@@ -103,6 +108,54 @@ struct ContentView: View {
         .overlay(RoundedRectangle(cornerRadius: 18).stroke(Color.white.opacity(0.08), lineWidth: 1))
     }
 
+    private var expiryCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Label("授权期限", systemImage: "calendar.badge.clock")
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundColor(.white.opacity(0.8))
+
+            Picker("期限类型", selection: $expiryMode) {
+                Text("永久").tag(0)
+                Text("快捷天数").tag(1)
+                Text("指定日期").tag(2)
+            }
+            .pickerStyle(.segmented)
+            .colorMultiply(Color(hex: "8FA8FF"))
+            .onChange(of: expiryMode) { _, _ in refreshExpiryLabel() }
+
+            if expiryMode == 1 {
+                HStack(spacing: 8) {
+                    Text("有效期")
+                        .font(.system(size: 14))
+                        .foregroundColor(.white.opacity(0.7))
+                    Picker("天数", selection: $selectedDays) {
+                        Text("7 天").tag(7)
+                        Text("30 天").tag(30)
+                        Text("90 天").tag(90)
+                        Text("180 天").tag(180)
+                        Text("365 天").tag(365)
+                    }
+                    .pickerStyle(.menu)
+                    .tint(Color(hex: "8FA8FF"))
+                    .onChange(of: selectedDays) { _, _ in refreshExpiryLabel() }
+                }
+            } else if expiryMode == 2 {
+                DatePicker("到期日", selection: $customDate, displayedComponents: .date)
+                    .datePickerStyle(.compact)
+                    .colorScheme(.dark)
+                    .onChange(of: customDate) { _, _ in refreshExpiryLabel() }
+            }
+
+            Text("当前期限：\(expiryLabel)")
+                .font(.system(size: 12))
+                .foregroundColor(Color(hex: "8FA8FF"))
+        }
+        .padding(18)
+        .background(Color.white.opacity(0.04))
+        .cornerRadius(18)
+        .overlay(RoundedRectangle(cornerRadius: 18).stroke(Color.white.opacity(0.08), lineWidth: 1))
+    }
+
     private func resultCard(_ code: String) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             Label("激活码", systemImage: "checkmark.seal.fill")
@@ -147,7 +200,7 @@ struct ContentView: View {
             Label("使用说明", systemImage: "info.circle")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(.white.opacity(0.8))
-            Text("1. 让用户打开 Reloc，复制启动页显示的 RLC- 设备码。\n2. 粘贴到上方输入框，点「生成激活码」。\n3. 复制激活码发给用户，在 Reloc 激活页输入即可。\n4. 一机一码，只对生成它的那台设备有效。")
+            Text("1. 让用户打开 App，复制启动页显示的 RLC- 设备码。\n2. 粘贴到上方输入框，选好期限，点「生成激活码」。\n3. 复制激活码发给用户，在 App 激活页输入即可。\n4. 一机一码，只对生成它的设备有效；到期后需重新签发。\n5. 永久码可直接用；限时码到期日已签名，用户改不了。")
                 .font(.system(size: 13))
                 .foregroundColor(.white.opacity(0.55))
                 .lineSpacing(4)
@@ -187,7 +240,17 @@ struct ContentView: View {
             showInvalid = true
             return
         }
-        guard let code = KeygenEngine.generate(from: deviceCode), code.count == 26 else {
+        let stamp: String? = {
+            switch expiryMode {
+            case 1: return KeygenEngine.dayString(daysFromNow: selectedDays)
+            case 2:
+                let f = DateFormatter()
+                f.dateFormat = "yyyyMMdd"
+                return f.string(from: customDate)
+            default: return nil
+            }
+        }()
+        guard let code = KeygenEngine.generate(from: deviceCode, expiryDay: stamp) else {
             showInvalid = true
             resultCode = nil
             return
@@ -195,6 +258,22 @@ struct ContentView: View {
         resultCode = code
         showInvalid = false
         endEditing()
+    }
+
+    private func refreshExpiryLabel() {
+        switch expiryMode {
+        case 0:
+            expiryLabel = "永久有效"
+        case 1:
+            let f = DateFormatter()
+            f.dateFormat = "yyyy-MM-dd"
+            let date = Calendar.current.date(byAdding: .day, value: selectedDays, to: Date()) ?? Date()
+            expiryLabel = "至 \(f.string(from: date))（\(selectedDays) 天）"
+        default:
+            let f = DateFormatter()
+            f.dateFormat = "yyyy-MM-dd"
+            expiryLabel = "至 \(f.string(from: customDate))"
+        }
     }
 
     private func endEditing() {

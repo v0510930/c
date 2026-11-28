@@ -37,12 +37,22 @@ struct ActivationGateView: View {
                     Text("怪咖定位 · 设备授权")
                         .font(.title2.bold())
 
-                    Text("把下方设备码发给管理员，用注册机生成激活码后粘贴到下面。一个激活码只对本机有效。")
+                    Text("把下方设备码发给管理员，用注册机生成激活码后粘贴到下面。一个激活码只对本机有效，可设置有效期。")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
 
                     deviceCodeCard
+
+                    if !manager.isActivated, let expired = manager.expiryDate {
+                        HStack(spacing: 8) {
+                            Image(systemName: "clock.badge.exclamationmark")
+                            Text("授权已于 \(Self.format(expired)) 到期，请联系管理员续期")
+                                .font(.footnote)
+                        }
+                        .foregroundStyle(RelocTheme.crimson)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
 
                     VStack(alignment: .leading, spacing: 6) {
                         Text("激活码").font(.caption).foregroundStyle(.secondary)
@@ -72,7 +82,7 @@ struct ActivationGateView: View {
                         verify()
                     }
 
-                    Text("激活状态保存在本机，不影响定位功能。")
+                    Text("激活状态保存在本机，不影响定位功能。永久码可直接用；限时码格式为 RLC2-到期日-签名。")
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -121,10 +131,17 @@ struct ActivationGateView: View {
 
     private func verify() {
         if manager.activate(with: code) {
+            errorMessage = ""
             RelocTheme.hapticSuccess()
         } else {
-            errorMessage = "激活码无效，或不是为本机设备码生成。"
+            errorMessage = "激活码无效、已过期，或不是为本机设备码生成。"
             RelocTheme.hapticMedium()
         }
+    }
+
+    private static func format(_ date: Date) -> String {
+        let f = DateFormatter()
+        f.dateFormat = "yyyy-MM-dd"
+        return f.string(from: date)
     }
 }

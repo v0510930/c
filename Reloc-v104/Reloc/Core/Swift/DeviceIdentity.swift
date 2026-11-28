@@ -117,4 +117,13 @@ enum KeychainStore {
         }
         return status == errSecSuccess
     }
+
+    @discardableResult
+    static func remove(_ key: String) -> Bool {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: key
+        ]
+        return SecItemDelete(query as CFDictionary) == errSecSuccess
+    }
 }

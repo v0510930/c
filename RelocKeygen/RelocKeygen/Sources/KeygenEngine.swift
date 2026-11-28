@@ -1,26 +1,52 @@
 import Foundation
 
-/// Reloc 注册机核心算法。
-/// 与桌面版 keygen.py 完全一致：对设备码做 HMAC-SHA256，取前 16 字节转 Base32，得到 26 字符激活码。
-/// 共享密钥只内置在注册机里，不出现在被授权的 App 中。
+/// 注册机核心算法（与桌面 keygen.py 完全一致）：
+/// - 永久码：Base32(HMAC(secret, 设备码)[:16])，26 字符
+/// - 限时码：RLC2-YYYYMMDD-<26字符签名>，签名覆盖 设备码+到期日
 enum KeygenEngine {
-    /// 与 Reloc App 内置密钥一致（32 字节）
+    /// 与 App 内置密钥一致（32 字节）
     private static let secret: [UInt8] = [
         242, 69, 248, 169, 96, 183, 99, 119, 100, 52, 230, 200, 163, 206, 157, 183,
         100, 110, 143, 254, 155, 242, 196, 63, 143, 212, 91, 125, 9, 185, 254, 143
     ]
 
-    /// 规范化设备码：去掉所有空白并转大写（与 App 端一致）
     static func normalize(_ value: String) -> String {
         value.split(whereSeparator: { $0.isWhitespace }).joined().uppercased()
     }
 
-    /// 输入设备码，返回 26 字符激活码
-    static func generate(from input: String) -> String? {
+    private static func sign(_ payload: String) -> String {
+        let mac = SimpleCrypto.hmacsha256(key: secret, message: Array(payload.utf8))
+        return Base32.encode(Data(mac.prefix(16)))
+    }
+
+    /// 生成激活码。expiryDay 为 nil 表示永久；否则为 8 位到期日 YYYYMMDD
+    static func generate(from input: String, expiryDay: String? = nil) -> String? {
         let device = normalize(input)
         guard !device.isEmpty else { return nil }
-        let mac = SimpleCrypto.hmacsha256(key: secret, message: Array(device.utf8))
-        return Base32.encode(Data(mac.prefix(16)))
+
+        guard let stamp = expiryDay else {
+            return sign(device)
+        }
+        guard stamp.count == 8, stamp.allSatisfy({ $0.isNumber }), isValidDay(stamp) else {
+            return nil
+        }
+        return "RLC2-\(stamp)-\(sign(device + "|" + stamp))"
+    }
+
+    private static func isValidDay(_ stamp: String) -> Bool {
+        let f = DateFormatter()
+        f.dateFormat = "yyyyMMdd"
+        f.locale = Locale(identifier: "en_US_POSIX")
+        guard let date = f.date(from: stamp) else { return false }
+        return f.string(from: date) == stamp
+    }
+
+    /// 计算从今天起 N 天后的到期日字符串
+    static func dayString(daysFromNow days: Int) -> String {
+        let date = Calendar.current.date(byAdding: .day, value: days, to: Date()) ?? Date()
+        let f = DateFormatter()
+        f.dateFormat = "yyyyMMdd"
+        return f.string(from: date)
     }
 }
 
