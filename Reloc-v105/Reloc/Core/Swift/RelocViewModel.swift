@@ -1620,12 +1620,20 @@ public final class RelocViewModel: ObservableObject {
         }
 
         let hasFreshSessionPackets = isAccessoryLocationConfirmed || snapshot.packetsAcknowledged >= 2
-        let confirmed = !snapshot.activeSentences.isEmpty
+        // v1.0.5 strict lock判定 (轨迹模式仍需精确)
+        let strictConfirmed = !snapshot.activeSentences.isEmpty
             && hasFreshSessionPackets
             && isFreshFix
             && (telemetry.isProducedByAccessory == true)
             && !isDeadReckoningFrozen
             && distance < maxDistanceMeters
+        // 兼容兜底：v1.0.5 将生效距离阈值从 500m 收紧到 80m 并新增航位推算冻结拦截，
+        // 远距离/跨城定格场景易被误判为“待刷新生效”。定格模式恢复 v1.0.4 宽松判定，
+        // 只要外设 GPS 已产生且坐标落在合理范围即确认生效；轨迹模式不适用此兜底。
+        let legacyConfirmed = !isRouteSessionActive
+            && (telemetry.isProducedByAccessory == true)
+            && distance < 500.0
+        let confirmed = strictConfirmed || legacyConfirmed
 
         if confirmed {
             consecutiveLockLossCount = 0
